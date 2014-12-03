@@ -1,0 +1,26 @@
+{
+  "name": "gamepredictions",
+  "version": "1.0.0",
+  "description": "gamepredictions ===============",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elderbas/gamepredictions.git"
+  },
+  "author": "brian and julie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elderbas/gamepredictions/issues"
+  },
+  "homepage": "https://github.com/elderbas/gamepredictions",
+  "dependencies": {
+    "body-parser": "^1.10.0",
+    "express": "^4.10.4",
+    "method-override": "^2.3.0",
+    "morgan": "^1.5.0",
+    "request": "^2.49.0"
+  }
+}
