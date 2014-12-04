@@ -2,110 +2,79 @@ function clog(v){console.log(v);}
 var db = require('../mongo-db.js').db;
 
 
-var users = {
-  'users':[
-    {
-      id:1,
-      name:'Papa Smurf',
-      predictionsCorrect:1,
-      predictionsMade:1
-    },
-    {
-      id:2,
-      name:'Lady Gaga',
-      predictionsCorrect:1,
-      predictionsMade:1
-    },
-    {
-      id:3,
-      name:'Red Kool-aid Guy',
-      predictionsCorrect:1,
-      predictionsMade:1
-    }
-  ]
-};
-
-var games = {
-  'games':[
-    {
-      id:1,
-      winResult: false,
-      isDone: false,
-      teams:['Chicago Bulls', 'Boston Red Sox']
-    },
-    {
-      id:2,
-      winResult: false,
-      isDone: false,
-      teams:['Da Bears', 'Kevin Spacey']
-    },
-    {
-      id:3,
-      winResult: false,
-      isDone: false,
-      teams:['Backstreet Boys', 'N\'Sync']
-    },
-    {
-      id:4,
-      winResult: false,
-      isDone: false,
-      teams:['Blue', 'Magenta']
-    }
-  ]
-};
-
-var predictions = {
-  'predictions':[
-  ]
-};
 
 
 //they will be requesting the inventory with GET
 //basically sending the inventory but also sending
 //the id of the items so it's easier to delete
 exports.retrieveGames = function(req, res){
-  clog('inside retrieveGames... sending..');
-  clog(games);
-  res.json(games);
+  // clog('inside retrieveGames... sending..');
+  // clog(games);
+  // res.json(games);
+  db.Game.find(function(err, games){
+    if(err){
+      console.log("error in Game.find");
+      console.error(err);
+    }
+    console.log('GAMES!!! inside retrieve games');
+    res.json(games);
+  });
 };
 
 exports.retrieveUsers = function(req, res){
-  clog('inside retrieveUsers... sending..');
-  clog(users);
-  res.json({ users: users });
+  // clog('inside retrieveUsers... sending..');
+  // clog(users);
+  // res.json({ users: users });
+  db.User.find(function(err, users){
+    if(err){
+      console.log("error in Game.find");
+      console.error(err);
+    }
+    console.log('USERS!!! inside retrieve users');
+    res.json(users);
+  });
 };
 
 
 exports.updateGame = function(req, res){
-
+  // var id = req.params.id;
+  // if(games.games[id].id === req.body.id){
+  //   games.games[id] = req.body;
+  // }
   
-  var id = req.params.id;
-  if(games.games[id].id === req.body.id){
-    games.games[id] = req.body;
-  }
-  
-  res.json(req.body);
+  // res.json(req.body);
 };
 
-exports.addToDB = function(req, res){
-  // var Game = db.Game;
+exports.updateUser = function(req, res){
+  // var id = req.params.id;
+  // if(games.games[id].id === req.body.id){
+  //   games.games[id] = req.body;
+  // }
+  
+  // res.json(req.body);
+};
+
+exports.addGame = function(req, res){
   var newGame = new db.Game({
-    id:        4,
-    winResult: true,
-    isDone:    false,
-    teams:     ['Bears','SK1']
-  });
+    id:        req.body.id,
+    winResult: req.body.winResult,
+    isDone:    req.body.isDone,
+    teams:     req.body.teams
+  })
 
   newGame.save(function(err, newGame){
     if(err){
       console.log('error in newGame.save')
       return console.error(err);
     }
-    res.send('new game is saved aga22222in!!!');
-    
+      console.log('new game is saved!');
   });
 };
 
+
+exports.addUser = function(req, res){
+  
+};
 
 //adding items
 //used with POST, add the item to storage

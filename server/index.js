@@ -24,13 +24,17 @@ app.use( express.static(path.join(__dirname, '../client')) );
 
 
 
-//all things retrieve
+//all things read
 app.get('/api/games', api.retrieveGames);
 app.get('/api/users', api.retrieveUsers);
 
-//all things edit
+//all things update
 app.post('/api/games/:id', api.updateGame);
-app.get('/api/db',         api.addToDB);
+app.post('/api/users/:id',  api.updateUser);
+
+//all things add
+app.post('/api/games/', api.addGame);
+app.post('/api/users/',  api.addUser);
 
 
 
