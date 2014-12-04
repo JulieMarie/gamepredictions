@@ -34,10 +34,10 @@ app.use( express.static(path.join(__dirname, 'client')) );
 app.get('/api/games', api.retrieveGames);
 app.get('/api/users', api.retrieveUsers;
 
-//TODO
-app.post('/api/users/:id', api.editItem);
-app.post('/api/games/add', api.addItem);
-app.get('*', routes.index);
+//all things edit
+app.post('/api/games/:id', api.updateGame);
+// app.post('/api/games/add', api.addItem);
+// app.get('*', routes.index);
 
 
 

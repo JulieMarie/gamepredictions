@@ -74,16 +74,20 @@ exports.retrieveUsers = function(req, res){
 };
 
 
-exports.editItem = function(req, res){
-  // var id = req.params.id;
-  // console.log(req.body);
-  // console.log('req.body above');
-  // console.log(storage.inventory[id])
-  // console.log('storage.inventory[id] BEFOREEEE')
-  // storage.inventory[id] = req.body;
-  // console.log(storage.inventory[id])
-  // console.log('storage.inventory[id] AFTERR')
-  // res.json(req.body);
+exports.updateGame = function(req, res){
+
+  clog('inside updateGame...');
+  clog('!!reqbodybelow!!');
+  clog(req.body);
+  clog('!!reqbodyabove!!');
+  var id = req.params.id;
+  if(games.games[id].id === req.body.id){
+    games.games[id] = req.body;
+  }
+  clog('!!gamesbelow!!');
+  clog(games.games);
+  clog('!!gamesabove!!');
+  res.json(req.body);
 };
 
 
@@ -92,11 +96,11 @@ exports.editItem = function(req, res){
 //adding items
 //used with POST, add the item to storage
 //then send what they sent us back
-exports.addItem = function(req, res){
+// exports.addItem = function(req, res){
   // storage.inventory.push(req.body);
   // res.json(req.body);
   // console.log(storage);
-};
+// };
 
 
 
