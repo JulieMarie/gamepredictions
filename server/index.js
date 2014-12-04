@@ -12,8 +12,6 @@ var express      = require('express')        ,
 
 
 app.set('port', process.env.PORT || 3000);
-// app.set('views',  __dirname + '/views');
-// app.set('view engine', 'jade');
 app.use( morgan('dev') );
 app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
 app.use(bodyParser.json());                                     // parse application/json
