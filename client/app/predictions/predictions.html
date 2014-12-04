@@ -1,17 +1,18 @@
 <div class="container">
   <h2>Predictions Page</h2>
+  <div class="row">
+    <div ng-if="data.games.length === 0">
+      <p>Currently no links to display.</p>
+    </div>
 
-  <div ng-if="data.games.length === 0">
-    <p>Currently no links to display.</p>
-  </div>
-
-  <div ng-if="data.games.length > 0">'
-    <ul>
-      <li class="game" ng-repeat="game in data.games">
-        <p>Game: {{game.id}}</p>
-        <p>Team 1:  {{game.teams[0]}} <button type="submit" value="team1">Choose Team 1</button></p>
-        <p>Team 2:  {{game.teams[1]}} <button type="submit" value="team2">Choose Team 2</button></p>
-      </li>
-    </ul>
+    <div ng-if="data.games.length > 0">'
+      <ul class="games">
+        <li class="game" ng-repeat="game in data.games">
+          <p>Game: {{game.id}}</p>
+          <p>Team 1:  {{game.teams[0]}} <button type="submit" value="team1">Choose Team 1</button></p>
+          <p>Team 2:  {{game.teams[1]}} <button type="submit" value="team2">Choose Team 2</button></p>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
