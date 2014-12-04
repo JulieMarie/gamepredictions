@@ -1,21 +1,15 @@
 angular.module('game-predictions.predictions', [])
 
-.controller('PredictionController', function($scope, Predictions, $timeout) {
+.controller('PredictionController', function($scope, Predictions) {
   console.log('in PredictionController');
-  
-  var push = function(game) {
-    return function() {
-      $scope.data.games.push(game);
-    };
-  };
 
   $scope.getGames = function() {
     $scope.loading = true;
     Predictions.getGames()
       .then(function(games) {
         $scope.loading = false;
-        games.forEach(function(game, delay) {
-          $timeout(push(game), delay * 175);
+        games.forEach(function(game) {
+          $scope.data.games.push(game);
         });
       })
       .catch(function(error) {
