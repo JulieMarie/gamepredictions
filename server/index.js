@@ -28,11 +28,11 @@ app.get('/api/users', api.retrieveUsers);
 
 //all things update
 app.post('/api/games/:id', api.updateGame);
-app.post('/api/users/:id',  api.updateUser);
+app.post('/api/users/:id', api.updateUser);
 
 //all things add
 app.post('/api/games/', api.addGame);
-app.post('/api/users/',  api.addUser);
+app.post('/api/users/', api.addUser);
 
 
 
