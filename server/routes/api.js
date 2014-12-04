@@ -55,7 +55,7 @@ exports.addGame = function(req, res){
     winResult: req.body.winResult,
     isDone:    req.body.isDone,
     teams:     req.body.teams
-  })
+  });
 
   newGame.save(function(err, newGame){
     if(err){

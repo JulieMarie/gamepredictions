@@ -31,7 +31,8 @@ var User = mongoose.model('users', UserSchema);
 var Game = mongoose.model('games', GameSchema);
 
 
-
+//for removing all documents
+// Game.find().remove().exec();
 
 
 exports.db = {User:User,Game:Game};
