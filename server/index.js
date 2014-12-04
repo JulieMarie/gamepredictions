@@ -3,12 +3,11 @@ function clog(v){console.log(v);}
 var express      = require('express'),
   bodyParser     = require('body-parser'),
   methodOverride = require('method-override'),
-  errorHandler   = require('error-handler'),
   morgan         = require('morgan'),
-
+  app            = express(),
   //TODO
-  routes         = require(''),
-  api            = require(''),
+  routes         = require('./routes/index.js'),
+  api            = require('./routes/api.js'),
   http           = require('http'),
   path           = require('path');
 
@@ -32,7 +31,7 @@ app.use( express.static(path.join(__dirname, 'client')) );
 
 //all things retrieve
 app.get('/api/games', api.retrieveGames);
-app.get('/api/users', api.retrieveUsers;
+app.get('/api/users', api.retrieveUsers);
 
 //all things edit
 app.post('/api/games/:id', api.updateGame);
