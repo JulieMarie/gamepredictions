@@ -9,9 +9,6 @@ mongoose.connect('mongodb://localhost/test', function (error) {
     }
 });
 
-
-
-
 // Mongoose Schema definitions
 var Schema = mongoose.Schema;
 

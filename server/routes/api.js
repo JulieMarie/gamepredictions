@@ -4,13 +4,8 @@ var db = require('../mongo-db.js').db;
 
 
 
-//they will be requesting the inventory with GET
-//basically sending the inventory but also sending
-//the id of the items so it's easier to delete
+//all things read
 exports.retrieveGames = function(req, res){
-  // clog('inside retrieveGames... sending..');
-  // clog(games);
-  // res.json(games);
   db.Game.find(function(err, games){
     if(err){
       console.log("error in Game.find");
@@ -20,11 +15,7 @@ exports.retrieveGames = function(req, res){
     res.json(games);
   });
 };
-
 exports.retrieveUsers = function(req, res){
-  // clog('inside retrieveUsers... sending..');
-  // clog(users);
-  // res.json({ users: users });
   db.User.find(function(err, users){
     if(err){
       console.log("error in Game.find");
@@ -36,6 +27,8 @@ exports.retrieveUsers = function(req, res){
 };
 
 
+
+//all things update
 exports.updateGame = function(req, res){
   // var id = req.params.id;
   // if(games.games[id].id === req.body.id){
@@ -54,6 +47,8 @@ exports.updateUser = function(req, res){
   // res.json(req.body);
 };
 
+
+//all things add
 exports.addGame = function(req, res){
   var newGame = new db.Game({
     id:        req.body.id,
@@ -77,20 +72,3 @@ exports.addUser = function(req, res){
   
 };
 
-//adding items
-//used with POST, add the item to storage
-//then send what they sent us back
-// exports.addItem = function(req, res){
-  // storage.inventory.push(req.body);
-  // res.json(req.body);
-  // console.log(storage);
-// };
-
-
-
-
-
-
-
-//editing items
-//deleting items
