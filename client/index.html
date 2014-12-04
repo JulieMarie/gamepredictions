@@ -6,7 +6,23 @@
     <link rel="stylesheet" href="styles/style.css">
   </head>
   <body>
-    <nav class="navbar">
-      <div
+    <nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <a ui-sref="links" class="navbar-brand">Game Predictions</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class ="nav navbar-nav">
+          <li>
+            <a ui-sref="predictions" ui-sref-active="active-states">Predictions</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <script src="../bower_components/jquery/dist/jquery.js"</script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="app/predictions/predictions.js"
+    <script src="app/app.js"></script>
   </body>
 </html>
