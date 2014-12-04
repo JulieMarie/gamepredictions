@@ -6,7 +6,6 @@ var express      = require('express'),
   morgan         = require('morgan'),
   app            = express(),
   //TODO
-  routes         = require('./routes/index.js'),
   api            = require('./routes/api.js'),
   http           = require('http'),
   path           = require('path');
@@ -16,7 +15,9 @@ app.set('port', process.env.PORT || 3000);
 // app.set('views',  __dirname + '/views');
 // app.set('view engine', 'jade');
 app.use( morgan('dev') );
-app.use( bodyParser() );
+app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
+app.use(bodyParser.json());                                     // parse application/json
+app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use( methodOverride() );
 app.use( express.static(path.join(__dirname, '../client')) );
 
@@ -29,8 +30,6 @@ app.get('/api/users', api.retrieveUsers);
 
 //all things edit
 app.post('/api/games/:id', api.updateGame);
-// app.post('/api/games/add', api.addItem);
-// app.get('*', routes.index);
 
 
 
