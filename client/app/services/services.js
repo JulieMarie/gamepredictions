@@ -1,7 +1,7 @@
 angular.module('game-predictions.services', [])
 
 .factory('Predictions', function ($http) {
-  var getGames = function () {
+  var getGames = function() {
     return $http({
       method: 'GET',
       url: '/api/games'
