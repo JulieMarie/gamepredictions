@@ -68,6 +68,7 @@ exports.addGame = function(req, res){
       return console.error(err);
     }
       console.log('new game is saved!');
+      res.send(newGame);
   });
 };
 
