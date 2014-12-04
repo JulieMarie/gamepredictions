@@ -11,7 +11,7 @@ angular.module('game-predictions.services', [])
     });
   };
 
-  var addPredictions = function (prediction) {
+  var makePredictions = function (prediction) {
     return $http({
       method: 'POST',
       url: '/api/predictions',
@@ -23,7 +23,7 @@ angular.module('game-predictions.services', [])
 
   return {
     getGames: getGames,
-    addPredictions: addPredictions,
+    makePredictions: makePredictions,
     games: games
   };
 });
