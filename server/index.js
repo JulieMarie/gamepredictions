@@ -13,21 +13,15 @@ var express      = require('express'),
 
 
 app.set('port', process.env.PORT || 3000);
-app.set('views',  __dirname + '/views');
+// app.set('views',  __dirname + '/views');
 // app.set('view engine', 'jade');
 app.use( morgan('dev') );
 app.use( bodyParser() );
 app.use( methodOverride() );
-app.use( express.static(path.join(__dirname, 'client')) );
+app.use( express.static(path.join(__dirname, '../client')) );
 
 
 
-
-
-//routes
-//TODO
-// app.get('/', routes.index);
-// app.get('/partials/:name', routes.partials);
 
 //all things retrieve
 app.get('/api/games', api.retrieveGames);
