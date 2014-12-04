@@ -64,7 +64,7 @@ var predictions = {
 exports.retrieveGames = function(req, res){
   clog('inside retrieveGames... sending..');
   clog(games);
-  res.json({ games: games });
+  res.json(games);
 };
 
 exports.retrieveUsers = function(req, res){
