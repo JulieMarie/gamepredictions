@@ -11,19 +11,16 @@ angular.module('game-predictions.services', [])
     });
   };
 
-  var makePredictions = function (prediction) {
+  var makePredictions = function (predictions) {
     return $http({
       method: 'POST',
       url: '/api/predictions',
-      data: prediction
+      data: predictions
     });
   };
 
-  var games = [];
-
   return {
     getGames: getGames,
-    makePredictions: makePredictions,
-    games: games
+    makePredictions: makePredictions
   };
 });
