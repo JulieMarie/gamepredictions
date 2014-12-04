@@ -6,7 +6,7 @@ angular.module('game-predictions.predictions', [])
   $scope.getGames = function() {
     Predictions.getGames()
       .then(function(games) {
-        $scope.data.games = games.games;
+        $scope.data.games = games;
       })
       .catch(function(error) {
         console.log(error);
