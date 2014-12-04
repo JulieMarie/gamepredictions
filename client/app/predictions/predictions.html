@@ -5,14 +5,19 @@
   </div>
 
   <div ng-if="data.games.length > 0">
-    <form name="makePredictions" ng-submit="makePredictions()" novalidate>
-      <ul class="games">
-        <li class="gamex" ng-repeat="game in data.games">
-          Game: {{game.id}}
-          <input type="radio" ng-model="game.prediction" value="{{game.id}}.team1">{{game.teams[0]}}
-          <input type="radio" ng-model="game.prediction" value="{{game.id}}.team2">{{game.teams[1]}}
+    <form name="make-predictions">
+      <ul>
+        <li ng-repeat="game in data.games">
+          <input type="hidden" name="game{{game.id}}" ng=model="prediction.game.id" value="{{game.id}}">
+          Game {{game.id}}:  
+          <input type="radio" ng-model="prediction.prediction_id" value="0">{{game.teams[0]}}
+          <input type="radio" ng-model="prediction.prediction_id" value="1">{{game.teams[1]}}
         </li>
       </ul>
+      <button type="submit" ng-click="makePredictions(prediction)">Submit Predictions</button>
     </form>
+    <hr>
+    <div ng-show="gamePredictions">Game Predictions:</div>
+    <pre>{{gamePredictions | json}}</pre>
   </div>
 </div>
