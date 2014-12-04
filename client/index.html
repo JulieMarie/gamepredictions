@@ -1,28 +1,25 @@
 <!DOCTYPE html>
-<html ng-app="game-predicitons">
+<html ng-app="game-predictions">
   <head>
     <meta charset="utf-8">
     <title>Game Predictions</title>
     <link rel="stylesheet" href="styles/style.css">
   </head>
   <body>
-    <nav class="navbar navbar-default">
-      <div class="navbar-header">
-        <a ui-sref="links" class="navbar-brand">Game Predictions</a>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class ="nav navbar-nav">
-          <li>
-            <a ui-sref="predictions" ui-sref-active="active-states">Predictions</a>
-          </li>
-        </ul>
-      </div>
+    <h1>Game Predictions</h1>
+    <nav class="navigation" >
+      <li><a href="#/predictions">Predictions</a></li>
     </nav>
 
-    <script src="../bower_components/jquery/dist/jquery.js"</script>
+    <div ng-view>
+    </div>
+
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="../bower_components/angular/angular.js"></script>
-    <script src="app/predictions/predictions.js"
+     <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="app/predictions/predictions.js"></script>
+    <script src="app/services/services.js"></script>
     <script src="app/app.js"></script>
   </body>
 </html>
