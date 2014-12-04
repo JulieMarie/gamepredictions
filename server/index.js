@@ -1,14 +1,15 @@
 function clog(v){console.log(v);}
 
-var express      = require('express'),
-  bodyParser     = require('body-parser'),
+var express      = require('express')        ,
+  bodyParser     = require('body-parser')    ,
   methodOverride = require('method-override'),
-  morgan         = require('morgan'),
-  app            = express(),
-  //TODO
+  morgan         = require('morgan')         ,
   api            = require('./routes/api.js'),
-  http           = require('http'),
-  path           = require('path');
+  http           = require('http')           ,
+  path           = require('path')           ,
+  app            = express()                 ;
+
+
 
 app.set('port', process.env.PORT || 3000);
 // app.set('views',  __dirname + '/views');
@@ -29,6 +30,7 @@ app.get('/api/users', api.retrieveUsers);
 
 //all things edit
 app.post('/api/games/:id', api.updateGame);
+app.get('/api/db',         api.addToDB);
 
 
 

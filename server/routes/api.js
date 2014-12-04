@@ -1,4 +1,6 @@
 function clog(v){console.log(v);}
+var db = require('../mongo-db.js').db;
+
 
 var users = {
   'users':[
@@ -76,21 +78,33 @@ exports.retrieveUsers = function(req, res){
 
 exports.updateGame = function(req, res){
 
-  clog('inside updateGame...');
-  clog('!!reqbodybelow!!');
-  clog(req.body);
-  clog('!!reqbodyabove!!');
+  
   var id = req.params.id;
   if(games.games[id].id === req.body.id){
     games.games[id] = req.body;
   }
-  clog('!!gamesbelow!!');
-  clog(games.games);
-  clog('!!gamesabove!!');
+  
   res.json(req.body);
 };
 
+exports.addToDB = function(req, res){
+  // var Game = db.Game;
+  var newGame = new db.Game({
+    id:        4,
+    winResult: true,
+    isDone:    false,
+    teams:     ['Bears','SK1']
+  });
 
+  newGame.save(function(err, newGame){
+    if(err){
+      console.log('error in newGame.save')
+      return console.error(err);
+    }
+    res.send('new game is saved aga22222in!!!');
+    
+  });
+};
 
 
 //adding items
