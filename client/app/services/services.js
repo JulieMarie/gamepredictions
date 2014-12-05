@@ -47,9 +47,40 @@ angular.module('game-predictions.services', [])
           .success(function(){
             console.log('yay, games deleted')
           })
+      },
+      getGames:function(callback){
+        return $http({
+          method: 'GET',
+          url: '/api/games'
+        })
+        .then(function (resp) {
+          return resp.data;
+        });
       }
   };
   
 
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
