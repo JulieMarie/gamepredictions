@@ -20,7 +20,7 @@ var UserSchema = new Schema({
 });
 var GameSchema = new Schema({
     id:        Number,
-    winResult: Boolean,
+    winResult: String,
     isDone:    Boolean,
     teams:     Array
 });

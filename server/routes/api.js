@@ -62,8 +62,11 @@ exports.addGame = function(req, res){
       console.log('error in newGame.save')
       return console.error(err);
     }
+    else{
       console.log('new game is saved!');
-      res.send(newGame);
+      res.json(newGame);
+    }
+      
   });
 };
 
