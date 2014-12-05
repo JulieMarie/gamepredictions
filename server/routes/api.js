@@ -50,6 +50,7 @@ exports.updateUser = function(req, res){
 
 //all things add
 exports.addGame = function(req, res){
+  console.log('inside add game!!!');
   var newGame = new db.Game({
     id:        req.body.id,
     winResult: req.body.winResult,
@@ -74,4 +75,26 @@ exports.addGame = function(req, res){
 exports.addUser = function(req, res){
   
 };
+
+
+
+exports.deleteGames = function(req, res){
+  Game.find().remove().exec();
+  console.log('deleting games...')
+  res.send(req.body);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

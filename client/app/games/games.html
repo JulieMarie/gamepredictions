@@ -1,0 +1,24 @@
+<div class="container">
+ <form name="createGameForm">
+    <ul>
+      <li><input type="text" placeholder="game id" ng-model="gameId"></li>
+      <li><input type="text" placeholder="team 1" ng-model="team1"></li>
+      <li><input type="text" placeholder="team 2" ng-model="team2"></li>
+    </ul>
+    <button type="submit" ng-click="createGame(gameId, team1, team2)">Create Game</button>
+  </form>
+  <p>
+    <ul>
+      <li ng-repeat="game in games">
+        <div>{{ game.id }}</div>
+        <div>{{ game.isDone }}</div>
+        <div>{{ game.winResult }}</div>
+        <div>{{ game.teams }}</div>
+      </li>
+    </ul>
+  </p>
+  <form name="deleteGamesForm">
+
+    <button type="submit" ng-click="deleteGames()">Delete ALL Games</button>
+  </form>
+</div>

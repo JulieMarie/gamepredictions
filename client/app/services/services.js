@@ -23,4 +23,33 @@ angular.module('game-predictions.services', [])
     getGames: getGames,
     makePredictions: makePredictions
   };
-});
+})
+
+
+
+
+.factory('Games', function($http){
+  return {
+      createGame:function(id, team1, team2){
+        var gameObj = {
+          id:        id,
+          winResult: 'null',
+          isDone:    false,
+          teams:     [team1, team2]
+        };  
+        $http.post('/api/games', gameObj)
+          .success(function(){
+            console.log('yay, game created')
+          })
+      },
+      deleteGames:function(){
+        $http.delete('/api/games')
+          .success(function(){
+            console.log('yay, games deleted')
+          })
+      }
+  };
+  
+
+
+})

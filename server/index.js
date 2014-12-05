@@ -34,6 +34,8 @@ app.post('/api/users/:id', api.updateUser);
 app.post('/api/games/', api.addGame);
 app.post('/api/users/', api.addUser);
 
+//all things delete
+app.delete('/api/games', api.deleteGames);
 
 
 http.createServer(app).listen(app.get('port'), function(){
