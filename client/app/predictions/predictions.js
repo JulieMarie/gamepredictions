@@ -6,7 +6,7 @@ angular.module('game-predictions.predictions', [])
   $scope.getGames = function() {
     Predictions.getGames()
       .then(function(games) {
-        $scope.data.games = games;
+        $scope.data.games = games.games;
       })
       .catch(function(error) {
         console.log(error);
@@ -15,17 +15,12 @@ angular.module('game-predictions.predictions', [])
   $scope.getGames();
 
   $scope.predictions = [];
-  // $scope.makePredictions = function() {
-  //   console.log('in here');
-  //   $scope.gamePredictions = angular.copy($scope.predictions);
-  // };
-  $scope.makePredictions = function(predictions) {
-    console.log('in makePredictions');
-    Predictions.makePredictions(predictions)
+  $scope.makePrediction = function(prediction) {
+    prediction.gameid = prediction.winprediction.slice(0, 1);
+    prediction.winprediction = prediction.winprediction.slice(2);
+    Predictions.makePrediction(prediction)
       .then(function() {
-        angular.forEach($scope.data.games, function(game) {
-          $scope.prediction_ids.push(game.prediction_id);
-        })
+        $scope.predictions.push();
       })
       .catch(function(error) {
         console.log(error);
