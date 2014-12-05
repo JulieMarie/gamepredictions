@@ -11,17 +11,20 @@ angular.module('game-predictions.services', [])
     });
   };
 
-  var makePredictions = function (predictions) {
+  var makePrediction = function(prediction) {
     return $http({
       method: 'POST',
       url: '/api/predictions',
-      data: predictions
+      data: prediction
+    }).
+    then(function (resp) {
+      return resp.data;
     });
   };
 
   return {
     getGames: getGames,
-    makePredictions: makePredictions
+    makePrediction: makePrediction
   };
 })
 
