@@ -12,7 +12,7 @@ exports.retrieveGames = function(req, res){
       console.error(err);
     }
     console.log('GAMES!!! inside retrieve games');
-    res.json(games);
+    res.json({'games':games});
   });
 };
 exports.retrieveUsers = function(req, res){
