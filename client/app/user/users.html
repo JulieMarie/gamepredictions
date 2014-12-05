@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Users Page</h2>
+  <div ng-if="data.users.length === 0">
+    <p>Currently no users to display.</p>
+  </div>
+
+  <div ng-if="data.users.length > 0">
+    <ul>
+      <li ng-repeat="user in users">
+        User {{user.id}}:  {{user.name}} | {{user.predictionsCorrect}} | {{user.predictionsMade}}
+      </li>
+    </ul>
+  </div>
+</div>
