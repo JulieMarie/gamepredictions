@@ -25,9 +25,6 @@ angular.module('game-predictions.services', [])
   };
 })
 
-
-
-
 .factory('Games', function($http){
   return {
       createGame:function(id, team1, team2){
@@ -58,29 +55,20 @@ angular.module('game-predictions.services', [])
         });
       }
   };
-  
-
-
 })
 
+.factory('Users', function($http) {
+  var getUsers = function() {
+    return $http({
+      method: 'GET',
+      url: '/api/users'
+    })
+    .then(function (resp) {
+      return resp.data;
+    });
+  };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  return {
+    getUsers: getUsers
+  };
+});
